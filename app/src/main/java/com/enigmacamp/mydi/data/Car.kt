@@ -1,8 +1,9 @@
 package com.enigmacamp.mydi.data
 
 import android.util.Log
+import javax.inject.Inject
 
-class Car(private val engine: Engine) {
+class Car @Inject constructor(private val engine: Engine) {
     fun run() {
         Log.d("CarDI", "run: ${engine.startEngine()}")
     }
