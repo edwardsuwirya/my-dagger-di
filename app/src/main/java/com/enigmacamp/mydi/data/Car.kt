@@ -1,4 +1,4 @@
-package com.enigmacamp.mydi
+package com.enigmacamp.mydi.data
 
 import android.util.Log
 

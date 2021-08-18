@@ -1,4 +1,4 @@
-package com.enigmacamp.mydi
+package com.enigmacamp.mydi.data
 
 class ElectricalEngine : Engine {
     override val engineName = "Electrical Engine"
