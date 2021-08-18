@@ -3,27 +3,33 @@ package com.enigmacamp.mydi.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.enigmacamp.mydi.BaseApplication
-import com.enigmacamp.mydi.data.Car
 import com.enigmacamp.mydi.R
-import com.enigmacamp.mydi.data.Motorbike
+import com.enigmacamp.mydi.data.*
 import com.enigmacamp.mydi.di.DaggerVehicleComponent
+import com.enigmacamp.mydi.di.annotation.CarType
+import com.enigmacamp.mydi.di.annotation.GasolineType
+import com.enigmacamp.mydi.di.annotation.MotorbikeType
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
-    //    private lateinit var motorbike: Motorbike
     @Inject
-    lateinit var car: Car
+    @CarType
+    lateinit var car: Vehicle
+
+    @Inject
+    @MotorbikeType
+    lateinit var motorbike: Vehicle
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//
-//        motorbike = DaggerVehicleComponent.create().getMotorBike()
-//        motorbike.run()
-//        motorbike.parking()
 
         DaggerVehicleComponent.create().inject(this)
         car.run()
         car.parking()
+
+        motorbike.run()
+        motorbike.parking()
 
     }
 

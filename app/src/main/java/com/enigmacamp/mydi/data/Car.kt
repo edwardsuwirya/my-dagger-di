@@ -6,12 +6,14 @@ import com.enigmacamp.mydi.di.annotation.ElectricalType
 import javax.inject.Inject
 import javax.inject.Named
 
-class Car @Inject constructor(@ElectricalType private val engine: Engine) {
-    fun run() {
+class Car @Inject constructor(@ElectricalType private val engine: Engine) : Vehicle {
+    override val vehicleName = "Car"
+
+    override fun run() {
         Log.d("CarDI", "run: ${engine.startEngine()}")
     }
 
-    fun parking() {
+    override fun parking() {
         Log.d("CarDI", "run: ${engine.stopEngine()}")
     }
 }

@@ -1,8 +1,6 @@
 package com.enigmacamp.mydi.data
 
-import javax.inject.Inject
-
-class GasolineEngine @Inject constructor() : Engine {
+class GasolineEngine : Engine {
     override val engineName = "Gasoline Engine"
 
     override fun startEngine() = "$engineName Started"
