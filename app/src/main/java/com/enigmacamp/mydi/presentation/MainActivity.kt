@@ -6,6 +6,7 @@ import com.enigmacamp.mydi.BaseApplication
 import com.enigmacamp.mydi.R
 import com.enigmacamp.mydi.data.*
 import com.enigmacamp.mydi.di.DaggerVehicleComponent
+import com.enigmacamp.mydi.di.EngineModule
 import com.enigmacamp.mydi.di.annotation.CarType
 import com.enigmacamp.mydi.di.annotation.GasolineType
 import com.enigmacamp.mydi.di.annotation.MotorbikeType
@@ -24,7 +25,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        DaggerVehicleComponent.create().inject(this)
+//        DaggerVehicleComponent.create().inject(this)
+        DaggerVehicleComponent
+            .builder()
+            .engineModule(EngineModule(100))
+            .build()
+            .inject(this)
         car.run()
         car.parking()
 

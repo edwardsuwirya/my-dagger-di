@@ -1,9 +1,9 @@
 package com.enigmacamp.mydi.data
 
-class GasolineEngine : Engine {
+class GasolineEngine(private val capacity: Int) : Engine {
     override val engineName = "Gasoline Engine"
 
-    override fun startEngine() = "$engineName Started"
+    override fun startEngine() = "$engineName Started (cap:$capacity)"
 
-    override fun stopEngine() = "$engineName Stop"
+    override fun stopEngine() = "$engineName Stop (cap:$capacity)"
 }
