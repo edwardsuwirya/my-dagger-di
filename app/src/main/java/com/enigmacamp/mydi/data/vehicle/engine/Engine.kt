@@ -1,4 +1,4 @@
-package com.enigmacamp.mydi.data
+package com.enigmacamp.mydi.data.vehicle.engine
 
 interface Engine {
     val engineName: String

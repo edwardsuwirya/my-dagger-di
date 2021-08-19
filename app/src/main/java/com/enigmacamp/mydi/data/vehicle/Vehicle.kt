@@ -1,4 +1,4 @@
-package com.enigmacamp.mydi.data
+package com.enigmacamp.mydi.data.vehicle
 
 interface Vehicle {
     val vehicleName: String

@@ -1,6 +1,7 @@
-package com.enigmacamp.mydi.data
+package com.enigmacamp.mydi.data.vehicle.engine
 
-class DieselEngine(private val capacity: Int) : Engine {
+class DieselEngine() : Engine {
+    val capacity = 100
     override val engineName = "Diesel Engine"
 
     override fun startEngine() = "$engineName Started (cap:$capacity)"

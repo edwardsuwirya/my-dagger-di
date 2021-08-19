@@ -3,12 +3,10 @@ package com.enigmacamp.mydi.presentation
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import com.enigmacamp.mydi.R
-import com.enigmacamp.mydi.data.Vehicle
+import com.enigmacamp.mydi.data.vehicle.Vehicle
 import com.enigmacamp.mydi.di.annotation.CarType
 import com.enigmacamp.mydi.di.annotation.MotorbikeType
-import dagger.android.AndroidInjection
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 

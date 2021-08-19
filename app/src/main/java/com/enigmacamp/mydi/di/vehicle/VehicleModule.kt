@@ -1,10 +1,11 @@
-package com.enigmacamp.mydi.di
+package com.enigmacamp.mydi.di.vehicle
 
-import com.enigmacamp.mydi.data.Car
-import com.enigmacamp.mydi.data.Motorbike
-import com.enigmacamp.mydi.data.Vehicle
+import com.enigmacamp.mydi.data.vehicle.Car
+import com.enigmacamp.mydi.data.vehicle.Motorbike
+import com.enigmacamp.mydi.data.vehicle.Vehicle
 import com.enigmacamp.mydi.di.annotation.CarType
 import com.enigmacamp.mydi.di.annotation.MotorbikeType
+import com.enigmacamp.mydi.di.annotation.VehicleScope
 import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton
@@ -13,11 +14,11 @@ import javax.inject.Singleton
 abstract class VehicleModule {
     @Binds
     @CarType
-    @Singleton
+    @VehicleScope
     abstract fun bindsCar(car: Car): Vehicle
 
     @Binds
     @MotorbikeType
-    @Singleton
+    @VehicleScope
     abstract fun bindsMotorbike(motorbike: Motorbike): Vehicle
 }
