@@ -8,9 +8,9 @@ import javax.inject.Inject
 
 class Motorbike @Inject constructor(
     @GasolineType private val engine: Engine,
+    @MotorbikeType val plate:String
 ) : Vehicle {
     override val vehicleName = "Motorbike"
-val plate=""
     override fun run() {
         Log.d("CarDI", "run:$vehicleName ($plate) motorbike ${engine.startEngine()}")
     }

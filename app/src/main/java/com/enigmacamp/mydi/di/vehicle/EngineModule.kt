@@ -16,15 +16,15 @@ class EngineModule {
     @Provides
     @GasolineType
     @VehicleScope
-    fun provideGasolineEngine(): Engine = GasolineEngine()
+    fun provideGasolineEngine(capacity: Int): Engine = GasolineEngine(capacity)
 
     @Provides
     @ElectricalType
     @VehicleScope
-    fun provideElectricalEngine(): Engine = ElectricalEngine()
+    fun provideElectricalEngine(capacity: Int): Engine = ElectricalEngine(capacity)
 
     @Provides
     @DieselType
     @VehicleScope
-    fun provideDieselEngine(): Engine = DieselEngine()
+    fun provideDieselEngine(capacity: Int): Engine = DieselEngine(capacity)
 }
