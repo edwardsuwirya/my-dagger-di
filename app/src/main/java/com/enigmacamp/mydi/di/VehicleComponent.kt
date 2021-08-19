@@ -3,7 +3,11 @@ package com.enigmacamp.mydi.di
 import com.enigmacamp.mydi.presentation.MainActivity
 import dagger.Component
 
-@Component(modules = [VehicleModule::class, EngineModule::class])
+@Component(
+    modules = [VehicleModule::class,
+        EngineModule::class,
+        WheelsModule::class]
+)
 interface VehicleComponent {
     fun inject(activity: MainActivity)
 }
