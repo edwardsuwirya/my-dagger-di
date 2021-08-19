@@ -9,9 +9,10 @@ import com.enigmacamp.mydi.data.Vehicle
 import com.enigmacamp.mydi.di.annotation.CarType
 import com.enigmacamp.mydi.di.annotation.MotorbikeType
 import dagger.android.AndroidInjection
+import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
     @Inject
     @CarType
     lateinit var car: Vehicle
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var motorbike: Vehicle
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 //        DaggerVehicleComponent.create().inject(this)

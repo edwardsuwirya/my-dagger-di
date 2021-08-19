@@ -4,6 +4,7 @@ import com.enigmacamp.mydi.presentation.MainActivity
 import com.enigmacamp.mydi.presentation.NextActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import javax.inject.Singleton
 
 @Module
 abstract class ActivitiesModule {

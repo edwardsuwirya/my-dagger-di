@@ -8,6 +8,7 @@ import com.enigmacamp.mydi.presentation.NextActivity
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
+import dagger.android.AndroidInjector
 import javax.inject.Singleton
 
 @Singleton
@@ -19,9 +20,7 @@ import javax.inject.Singleton
         EngineModule::class,
         WheelsModule::class]
 )
-interface VehicleComponent {
-    fun inject(application: BaseApplication)
-
+interface VehicleComponent : AndroidInjector<BaseApplication> {
     @Component.Builder
     interface Builder {
         @BindsInstance
