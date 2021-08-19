@@ -1,25 +1,24 @@
 package com.enigmacamp.mydi
 
-import android.app.Activity
 import android.app.Application
-import com.enigmacamp.mydi.data.Car
 import com.enigmacamp.mydi.di.DaggerVehicleComponent
 import com.enigmacamp.mydi.di.VehicleComponent
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import javax.inject.Inject
 
-class BaseApplication : Application() {
-    lateinit var vehicleComponent: VehicleComponent
-
+class BaseApplication : Application(), HasAndroidInjector {
+    @Inject
+    lateinit var dispatchAndroidInjector: DispatchingAndroidInjector<Any>
     override fun onCreate() {
         super.onCreate()
-        vehicleComponent = DaggerVehicleComponent.builder()
+        DaggerVehicleComponent.builder()
             .engineCapacity(45)
             .carPlate("B1111TKI")
             .motorPlate("BK1234UW")
-            .build()
+            .build().inject(this)
     }
-}
 
-val Activity.vehicleComponent: VehicleComponent
-    get() {
-        return (application as BaseApplication).vehicleComponent
-    }
+    override fun androidInjector(): AndroidInjector<Any> = dispatchAndroidInjector
+}
