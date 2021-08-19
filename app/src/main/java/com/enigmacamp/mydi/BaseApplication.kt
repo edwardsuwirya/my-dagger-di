@@ -11,22 +11,20 @@ import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 
 class BaseApplication : DaggerApplication() {
-    lateinit var salesComponent: SalesComponent
-        private set
-    lateinit var vehicleComponent: VehicleComponent
-        private set
-    lateinit var dataComponent: DataComponent
-        private set
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        dataComponent = DaggerDataComponent.create()
-        salesComponent = DaggerSalesComponent.create()
-        vehicleComponent = DaggerVehicleComponent.builder().dataComponent(dataComponent).build()
         return DaggerAppComponent.builder()
-            .salesComponent(salesComponent)
-            .vehicleComponent(vehicleComponent)
+            .salesComponent(provideSalesComponent())
+            .vehicleComponent(provideVehicleComponent())
             .build()
     }
+
+    private fun provideDataComponent() = DaggerDataComponent.create()
+
+    private fun provideSalesComponent() = DaggerSalesComponent.create()
+
+    private fun provideVehicleComponent() =
+        DaggerVehicleComponent.builder().dataComponent(provideDataComponent()).build()
 
 
 }
