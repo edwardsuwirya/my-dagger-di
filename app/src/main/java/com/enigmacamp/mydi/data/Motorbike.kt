@@ -2,16 +2,20 @@ package com.enigmacamp.mydi.data
 
 import android.util.Log
 import com.enigmacamp.mydi.di.annotation.GasolineType
+import com.enigmacamp.mydi.di.annotation.MotorbikeType
 import javax.inject.Inject
 
-class Motorbike @Inject constructor(@GasolineType private val engine: Engine) : Vehicle {
+class Motorbike @Inject constructor(
+    @GasolineType private val engine: Engine,
+    @MotorbikeType val plate: String
+) : Vehicle {
     override val vehicleName = "Motorbike"
 
     override fun run() {
-        Log.d("CarDI", "run: motorbike ${engine.startEngine()}")
+        Log.d("CarDI", "run:$vehicleName ($plate) motorbike ${engine.startEngine()}")
     }
 
     override fun parking() {
-        Log.d("CarDI", "run: motorbike ${engine.stopEngine()}")
+        Log.d("CarDI", "run:$vehicleName ($plate) motorbike ${engine.stopEngine()}")
     }
 }

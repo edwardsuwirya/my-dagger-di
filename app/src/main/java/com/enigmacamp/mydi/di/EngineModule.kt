@@ -12,16 +12,16 @@ import dagger.Provides
 import javax.inject.Named
 
 @Module
-class EngineModule(private val capacity: Int) {
+class EngineModule {
     @Provides
     @GasolineType
-    fun provideGasolineEngine(): Engine = GasolineEngine(capacity)
+    fun provideGasolineEngine(capacity: Int): Engine = GasolineEngine(capacity)
 
     @Provides
     @ElectricalType
-    fun provideElectricalEngine(): Engine = ElectricalEngine(capacity)
+    fun provideElectricalEngine(capacity: Int): Engine = ElectricalEngine(capacity)
 
     @Provides
     @DieselType
-    fun provideDieselEngine(): Engine = DieselEngine(capacity)
+    fun provideDieselEngine(capacity: Int): Engine = DieselEngine(capacity)
 }

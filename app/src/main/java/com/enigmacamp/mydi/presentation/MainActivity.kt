@@ -2,6 +2,7 @@ package com.enigmacamp.mydi.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.enigmacamp.mydi.BaseApplication
 import com.enigmacamp.mydi.R
 import com.enigmacamp.mydi.data.*
@@ -26,11 +27,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 //        DaggerVehicleComponent.create().inject(this)
-        DaggerVehicleComponent
-            .builder()
-            .engineModule(EngineModule(100))
-            .build()
-            .inject(this)
+//        DaggerVehicleComponent
+//            .builder()
+//            .engineModule(EngineModule(100))
+//            .build()
+//            .inject(this)
+
+        DaggerVehicleComponent.builder()
+            .engineCapacity(45)
+            .carPlate("B1111TKI")
+            .motorPlate("BK1234UW")
+            .build().inject(this)
         car.run()
         car.parking()
 
