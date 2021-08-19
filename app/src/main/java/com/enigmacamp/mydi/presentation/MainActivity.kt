@@ -1,5 +1,6 @@
 package com.enigmacamp.mydi.presentation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,7 @@ import com.enigmacamp.mydi.di.EngineModule
 import com.enigmacamp.mydi.di.annotation.CarType
 import com.enigmacamp.mydi.di.annotation.GasolineType
 import com.enigmacamp.mydi.di.annotation.MotorbikeType
+import com.enigmacamp.mydi.vehicleComponent
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -33,16 +35,20 @@ class MainActivity : AppCompatActivity() {
 //            .build()
 //            .inject(this)
 
-        DaggerVehicleComponent.builder()
-            .engineCapacity(45)
-            .carPlate("B1111TKI")
-            .motorPlate("BK1234UW")
-            .build().inject(this)
+        vehicleComponent.inject(this)
+//        Cara panjang
+//        (application as BaseApplication).vehicleComponent.inject(this)
         car.run()
         car.parking()
 
         motorbike.run()
         motorbike.parking()
+
+        Log.d("MyDI", "onCreate: $car")
+        Log.d("MyDI", "onCreate: $motorbike")
+
+        val intent = Intent(this, NextActivity::class.java)
+        startActivity(intent)
 
     }
 

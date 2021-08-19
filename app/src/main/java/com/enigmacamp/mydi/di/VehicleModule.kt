@@ -7,14 +7,17 @@ import com.enigmacamp.mydi.di.annotation.CarType
 import com.enigmacamp.mydi.di.annotation.MotorbikeType
 import dagger.Binds
 import dagger.Module
+import javax.inject.Singleton
 
 @Module
 abstract class VehicleModule {
     @Binds
     @CarType
+    @Singleton
     abstract fun bindsCar(car: Car): Vehicle
 
     @Binds
     @MotorbikeType
+    @Singleton
     abstract fun bindsMotorbike(motorbike: Motorbike): Vehicle
 }
